@@ -8,3 +8,5 @@ jobs:
               run: echo "Hello World!!"
             - name: Bye user
               run: echo "Bye Bye!!"
+            - name: setup node js
+              uses: actions/setup-node@v5

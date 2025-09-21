@@ -1,12 +1,14 @@
 name: Deploy Dist folder
-on: push
+# on: push
+on: workflow_dispatch
 jobs:
     test:
         runs-on: ubuntu-latest
         steps:
             - name: Get code
-              run: |
-                echo "Cloning repo"
-                echo "${{toJson(github)}}"
-                git clone https://github.com/${{github.repository}}.git myfiles
-                cd myfiles && ls
+              actions/checkout@v4
+              # run: |
+              #   echo "Cloning repo"
+              #   echo "${{toJson(github)}}"
+              #   git clone https://github.com/${{github.repository}}.git myfiles
+              #   cd myfiles && ls
