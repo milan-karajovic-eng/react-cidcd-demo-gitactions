@@ -33,6 +33,6 @@ jobs:
                 node-version: 22
             - name: Install Dependencies
               run: npm install
-            - name: Run Tests
+            - name: build project
               run: npm run build
             
