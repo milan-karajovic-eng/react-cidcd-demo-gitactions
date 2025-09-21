@@ -23,4 +23,16 @@ jobs:
               run: npm run test
             - name: Completed job
               run: echo "Test job was success"
+
+        build:
+            - name: Get code
+              uses: actions/checkout@v4
+            - name: setup node js
+              uses: actions/setup-node@v4
+              with: 
+                node-version: 22
+            - name: Install Dependencies
+              run: npm install
+            - name: Run Tests
+              run: npm run build
             
