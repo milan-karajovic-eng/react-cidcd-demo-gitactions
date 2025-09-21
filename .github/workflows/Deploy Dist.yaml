@@ -1,14 +1,26 @@
-name: Deploy Dist folder
-# on: push
-on: workflow_dispatch
+name: Deploy Dist folder 
+on: push
 jobs:
     test:
         runs-on: ubuntu-latest
         steps:
             - name: Get code
-              actions/checkout@v4
+              uses: actions/checkout@v4
               # run: |
               #   echo "Cloning repo"
               #   echo "${{toJson(github)}}"
               #   git clone https://github.com/${{github.repository}}.git myfiles
               #   cd myfiles && ls
+            - name: setup node js
+              uses: actions/setup-node@v4
+              with: 
+                node-version: 22
+            - name: print node version
+              run: node -v
+            - name: Install Dependencies
+              run: npm install
+            - name: Run Tests
+              run: npm run test
+            - name: Completed job
+              run: echo "Test job was success"
+            
