@@ -15,20 +15,12 @@ jobs:
         steps:
             - name: Get code
               uses: actions/checkout@v4
-              # run: |
-              #   echo "Cloning repo"
-              #   echo "${{toJson(github)}}"
-              #   git clone https://github.com/${{github.repository}}.git myfiles
-              #   cd myfiles && ls
             - name: Setup Node and install dependencies
               uses: ./.github/actions/setupnode
               with:
                 nod-version: 20
             - name: Run Tests
               run: npm run test
-            - name: Completed job
-              run: echo "Test job was success"
-
     build:
       needs: test
       runs-on: ubuntu-latest
@@ -51,7 +43,7 @@ jobs:
         - name: Upload dist artifact
           uses: actions/upload-artifact@v4
           with: 
-            name: dist-files 
+            name: github-pages 
             path: dist
     deploy:
       runs-on: ubuntu-latest
