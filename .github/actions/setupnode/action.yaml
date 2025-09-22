@@ -1,7 +1,7 @@
 name: "Setup node and install dependencies"
 description: "sets up Node.js, cache dependencies, and installs them"
 inputs:
-  nod-version:
+  node-version:
     description: "Node.js version"
     required: false
     default: "22"
@@ -11,7 +11,7 @@ runs:
     - name: setup node js
       uses: actions/setup-node@v4
       with: 
-        nod-version: ${{ inputs.nod-version }}
+        node-version: ${{ inputs.node-version}}
     - name: Cache dependencies
       uses: actions/cache@v4
       id: cache
