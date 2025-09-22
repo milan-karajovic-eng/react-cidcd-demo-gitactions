@@ -23,7 +23,7 @@ jobs:
             - name: Setup Node and install dependencies
               uses: ./.github/actions/setupnode
               with:
-                node-version: 20
+                nod-version: 20
             - name: Run Tests
               run: npm run test
             - name: Completed job
