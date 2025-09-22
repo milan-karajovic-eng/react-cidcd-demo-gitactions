@@ -19,10 +19,10 @@ jobs:
               uses: actions/cache@v4
               id: cache
               with:
-                path: path/to/dependencies
+                path: node_modules
                 key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             - name: Install Dependencies
-              if: steps.npm-cache.outputs.cache-hit != 'true'
+              if: steps.cache.outputs.cache-hit != 'true'
               run: npm install
             - name: Run Tests
               run: npm run test
@@ -43,10 +43,10 @@ jobs:
           uses: actions/cache@v4
           id: cache
           with:
-            path: path/to/dependencies
+            path: node_modules
             key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         - name: Install Dependencies
-          if: steps.npm-cache.outputs.cache-hit != 'true'
+          if: steps.cache.outputs.cache-hit != 'true'
           run: npm install
         - name: build project
           run: npm run build
