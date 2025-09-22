@@ -21,7 +21,7 @@ jobs:
               #   git clone https://github.com/${{github.repository}}.git myfiles
               #   cd myfiles && ls
             - name: Setup Node and install dependencies
-              uses: ./github/setupnode/actions
+              uses: ./.github/actions/setupnode
             - name: Run Tests
               run: npm run test
             - name: Completed job
